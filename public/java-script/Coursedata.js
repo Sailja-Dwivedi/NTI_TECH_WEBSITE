@@ -144,11 +144,13 @@
 //     //     loginForm.classList.add('was-validated');
 //     // });
 // });
+ 
+var endpoint=`https://nti-tech-website.onrender.com/`
 
 
 
 function fetchAndDisplayCourses() {
-    fetch('http://localhost:3500/api/allcourse')
+    fetch(endpoint+"allcourse")
         .then(response => response.json())
         .then(data => {
             console.log(data);
@@ -224,9 +226,9 @@ function registerUser(name, email, phone, courseName) {
         },
         body: JSON.stringify(payload)
     };
-    const endpoint = 'http://localhost:3500/api/registerForCourse'; // Replace with your actual endpoint
+   // const endpoint = endpoint+; // Replace with your actual endpoint
 
-    fetch(endpoint, options)
+    fetch(endpoint+'registerForCourse', options)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');

@@ -80,7 +80,7 @@
     <script>
         async function fetchContacts() {
             try {
-                const response = await fetch('http://localhost:3500/api/Contactlist');
+                const response = await fetch('https://nti-tech-website.onrender.com/api/Contactlist');
                 const contacts = await response.json();
                 displayContacts(contacts);
             } catch (error) {
@@ -188,7 +188,7 @@
                 const message = document.getElementById('update-message').value;
 
                 try {
-                    const response = await fetch(`http://localhost:3500/api/Contactlist/${id}`, {
+                    const response = await fetch(`https://nti-tech-website.onrender.com/api/Contactlist/${id}`, {
                         method: 'PUT',
                         headers: {
                             'Content-Type': 'application/json'
@@ -210,7 +210,7 @@
 
         async function deleteContact(id) {
             try {
-                const response = await fetch(`http://localhost:3500/api/Contactlist/${id}`, {
+                const response = await fetch(`https://nti-tech-website.onrender.com/api/Contactlist/${id}`, {
                     method: 'DELETE',
                     headers: {
                         'Content-Type': 'application/json'

@@ -14,7 +14,7 @@ document.getElementById('contactForm').addEventListener('submit', function (even
     // Send data to API endpoint
     if (!empty) {
 
-        fetch('http://localhost:3500/api/Contact', {
+        fetch('https://nti-tech-website.onrender.com/api/Contact', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

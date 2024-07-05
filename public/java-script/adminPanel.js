@@ -7,7 +7,7 @@ document.getElementById('adminLoginForm').addEventListener('submit', function (e
     var password = document.getElementById('adminPassword').value;
 
     if (username && password) {
-        fetch('http://localhost:3500/api/Admin-login', {
+        fetch('https://nti-tech-website.onrender.com/api/Admin-login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -21,7 +21,7 @@ document.getElementById('adminLoginForm').addEventListener('submit', function (e
             .then(data => {
                 if (data.success) {
                     // Redirect to the dashboard on successful login
-                    window.location.href = 'http://localhost:3500/dashborad.html'; // Correct path to your dashboard
+                    window.location.href = 'https://nti-tech-website.onrender.com/dashborad.html'; // Correct path to your dashboard
                     alert("login successfully");
                 } else {
                     throw new Error(data.message);

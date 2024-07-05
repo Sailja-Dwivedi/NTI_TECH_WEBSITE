@@ -46,7 +46,7 @@
 
         async function fetchCourses() {
             try {
-                const response = await fetch('http://localhost:3500/api/allcourse');
+                const response = await fetch('https://nti-tech-website.onrender.com/api/allcourse');
                 const data = await response.json();
 
                 if (data.success) {
@@ -130,7 +130,7 @@
             const formData = new FormData(form);
 
             try {
-                const response = await fetch('http://localhost:3500/api/addCourse', {
+                const response = await fetch('https://nti-tech-website.onrender.com/api/addCourse', {
                     method: 'POST',
                     body: formData
                 });
@@ -181,7 +181,7 @@
                 const id = document.getElementById('update-id').value;
 
                 try {
-                    const response = await fetch(`http://localhost:3500/api/updateCourse/${id}`, {
+                    const response = await fetch(`https://nti-tech-website.onrender.com/api/updateCourse/${id}`, {
                         method: 'PUT',
                         body: formData
                     });
@@ -200,7 +200,7 @@
 
         async function deleteCourse(id) {
             try {
-                const response = await fetch(`http://localhost:3500/api/deleteCourse/${id}`, {
+                const response = await fetch(`https://nti-tech-website.onrender.com/api/deleteCourse/${id}`, {
                     method: 'DELETE',
                 });
 
