@@ -150,7 +150,7 @@ var endpoint=`https://nti-tech-website.onrender.com/`
 
 
 function fetchAndDisplayCourses() {
-    fetch(endpoint+"allcourse")
+    fetch(`${endpoint}api/allcourse`)
         .then(response => response.json())
         .then(data => {
             console.log(data);
