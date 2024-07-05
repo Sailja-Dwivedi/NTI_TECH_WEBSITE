@@ -228,7 +228,7 @@ function registerUser(name, email, phone, courseName) {
     };
    // const endpoint = endpoint+; // Replace with your actual endpoint
 
-    fetch(endpoint+'registerForCourse', options)
+    fetch(`${endpoint}registerForCourse`, options)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
