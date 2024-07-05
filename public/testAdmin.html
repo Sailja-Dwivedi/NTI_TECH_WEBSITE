@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer with Admin Login</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        .footer {
+            background-color: #f8f9fa;
+            padding: 30px 0;
+        }
+
+        .footer h5 {
+            font-weight: bold;
+        }
+
+        .footer p,
+        .footer a {
+            color: #6c757d;
+        }
+
+        .footer .btn-admin {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <footer class="footer mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <h5>Company Logo</h5>
+                    <img src="/upload/logo.jpeg" alt="Company Logo" class="img-fluid">
+                </div>
+                <div class="col-md-3">
+                    <h5>Address <i class="fas fa-map-marker-alt"></i></h5>
+                    <address>
+                        <a href="https://maps.app.goo.gl/avW7vPVeEbTk7N6P7" target="_blank">
+                            LIG - 2/21/422, Nehru Nagar, Rewa, Madhya Pradesh 486001
+                        </a>
+                    </address>
+                </div>
+                <div class="col-md-3">
+                    <h5>Contact Us</h5>
+                    <form id="contactForm" class="needs-validation" novalidate>
+                        <div class="form-group">
+                            <label for="contactName">Name</label>
+                            <input type="text" class="form-control" id="contactName" placeholder="Enter your name"
+                                required>
+                            <div class="invalid-feedback">Please enter your name.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactEmail">Email address</label>
+                            <input type="email" class="form-control" id="contactEmail" placeholder="Enter your email"
+                                required>
+                            <div class="invalid-feedback">Please enter a valid email address.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactPhone">Phone</label>
+                            <input type="number" class="form-control" id="contactPhone" placeholder="Enter your Number"
+                                required>
+                            <div class="invalid-feedback">Please enter phone number.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactMessage">Message</label>
+                            <textarea class="form-control" id="contactMessage" rows="3" placeholder="Enter your message"
+                                required></textarea>
+                            <div class="invalid-feedback">Please enter your message.</div>
+                        </div>
+                        <button type="submit" id="contactBtn" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+                <div class="col-md-3">
+                    <h5>Follow Us</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="https://www.facebook.com/ntitechacademy" target="_blank"><i
+                                    class="fab fa-facebook"></i> Facebook</a></li>
+                        <li><a href="https://twitter.com/ntitechacademy_" target="_blank"><i class="fab fa-twitter"></i>
+                                Twitter</a></li>
+                        <li><a href="https://www.instagram.com/ntitechacademy/" target="_blank"><i
+                                    class="fab fa-instagram"></i> Instagram</a></li>
+                        <li><a href="https://www.linkedin.com/company/nti-tech-academy/" target="_blank"><i
+                                    class="fab fa-linkedin"></i> LinkedIn</a></li>
+                    </ul>
+                    <button type="button" class="btn btn-secondary btn-admin" data-toggle="modal"
+                        data-target="#adminLoginModal">Admin Login</button>
+                </div>
+            </div>
+            <!-- Copyright notice -->
+            <div class="row">
+                <div class="col-12 text-center" style="background-color: black;">
+                    <p style="color: white;">&copy; 2024 Your Company Name. Developed by Deepak Gupta.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Admin Login Modal -->
+    <div class="modal fade" id="adminLoginModal" tabindex="-1" role="dialog" aria-labelledby="adminLoginModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="adminLoginModalLabel">Admin Login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="adminLoginForm" class="needs-validation" novalidate>
+                        <div class="form-group">
+                            <label for="adminUsername">Username</label>
+                            <input type="text" class="form-control" id="adminUsername" placeholder="Enter username"
+                                required>
+                            <div class="invalid-feedback">Please enter your username.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="adminPassword">Password</label>
+                            <input type="password" class="form-control" id="adminPassword" placeholder="Enter password"
+                                required>
+                            <div class="invalid-feedback">Please enter your password.</div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Form validation
+        (function () {
+            'use strict';
+            window.addEventListener('load', function () {
+                var forms = document.getElementsByClassName('needs-validation');
+                var validation = Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+
+        // Handle admin login form submission
+        document.getElementById('adminLoginForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            var username = document.getElementById('adminUsername').value;
+            var password = document.getElementById('adminPassword').value;
+
+            if (username && password) {
+                fetch('http://localhost:3500/api/Admin-login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        username: username,
+                        password: password
+                    })
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log('Response data:', data); // Log the response data
+                        if (data.success) {
+                            // Handle successful login
+                            alert('Login successful!');
+                            // Redirect or perform other actions
+                        } else {
+                            // Handle login failure
+                            alert('Login failed: ' + data.message);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Fetch error:', error);
+                        alert('An error occurred while logging in.');
+                    });
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NTI</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <style>
+        * {
+            padding: 0;
+
+            margin: 0;
+        }
+
+        .navbar {
+            background-color: #007bff;
+        }
+
+        .navbar-brand,
+        .nav-link,
+        .navbar-toggler-icon {
+            color: #fff !important;
+        }
+
+        .navbar .nav-item.active .nav-link {
+            color: #ffc107 !important;
+        }
+
+        .btn-primary,
+        .btn-outline-primary {
+            color: #fff !important;
+        }
+
+        .firstSectionContainer {
+            padding: 1rem;
+        }
+
+        .was-validated .form-control:invalid {
+            border-color: #dc3545;
+        }
+
+        .was-validated .form-control:valid {
+            border-color: #28a745;
+        }
+
+        .specailButton {
+            text-align: center;
+        }
+
+        .specailButton li {
+            padding: 10px;
+        }
+
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .navbar {
+            background-color: #007bff;
+        }
+
+        .navbar-brand,
+        .nav-link,
+        .navbar-toggler-icon {
+            color: #fff !important;
+        }
+
+        .navbar .nav-item.active .nav-link {
+            color: #ffc107 !important;
+        }
+
+        .footer {
+            background-color: #007bff;
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        .footer h5 {
+            color: #ffc107;
+        }
+
+        .footer address,
+        .footer a {
+            color: #fff;
+        }
+
+        .footer .fab,
+        .footer .fas {
+            margin-right: 10px;
+        }
+
+        .footer .btn-admin {
+            margin-top: 20px;
+        }
+
+        .modal-header,
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .course-card {
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        #followUs {
+            position: sticky;
+            top: 20px;
+        }
+
+
+        .contact-form {
+            background: #ffffff;
+            margin-top: 10%;
+            margin-bottom: 5%;
+            width: 70%;
+            border-radius: 10px;
+        }
+
+        .contact-form .form-control {
+            border-radius: 1rem;
+        }
+
+        .contact-image {
+            text-align: center;
+        }
+
+        .contact-image img {
+            border-radius: 6rem;
+            width: 11%;
+            margin-top: -3%;
+        }
+
+        .contact-form form {
+            padding: 14%;
+        }
+
+        .contact-form form .row {
+            margin-bottom: -7%;
+        }
+
+        .contact-form h3 {
+            margin-bottom: 8%;
+            margin-top: -10%;
+            text-align: center;
+            color: #333;
+        }
+
+        .btnContact {
+            width: 50%;
+            border: none;
+            border-radius: 1rem;
+            padding: 1.5%;
+            background: #0062cc;
+            font-weight: 600;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .btnContactSubmit {
+            width: 50%;
+            border-radius: 1rem;
+            padding: 1.5%;
+            color: #fff;
+            background-color: #0062cc;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* center image css */
+        .center-image {
+            display: flex;
+            /* align-items: center; */
+            padding-top: 1rem;
+            /* width: 100rem; */
+            justify-content: center;
+        }
+
+        .center-image div img {
+            width: 100%;
+        }
+
+        .card1 {
+            margin-bottom: 20px;
+            background-color: #9dc3ea;
+            cursor: pointer;
+        }
+
+
+        .card {
+            cursor: pointer;
+
+        }
+
+        .about-as {
+            background-color: antiquewhite;
+        }
+
+        /* start the hero section style */
+        .hero-section {
+            background-color: #f8f9fa;
+            padding: 50px 0;
+        }
+
+        .hero-section .content {
+            max-width: 600px;
+        }
+
+        .hero-section .heading {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .hero-section .subheading {
+            font-size: 1.25rem;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .hero-section .buttons {
+            margin-top: 20px;
+        }
+
+        .hero-section .image {
+            max-width: 90%;
+            border-radius: 100%;
+
+        }
+
+        #NTI-logo {
+            border-radius: 50%;
+            width: 60%;
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#">NTI</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Courses
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <!-- Course options will be populated here -->
+                    </div>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <!-- <input class="form-control mr-sm-2" type="search" name="name" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button> -->
+            </form>
+        </div>
+    </nav>
+
+
+
+    <!-- ragister modal Modal -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">Register for Course</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="registrationForm" class="needs-validation" novalidate>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+                            <div class="invalid-feedback">Please enter your name.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email address</label>
+                            <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                            <div class="invalid-feedback">Please enter a valid email address.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="text" class="form-control" id="phone" placeholder="Enter your phone number"
+                                required>
+                            <div class="invalid-feedback">Please enter your phone number.</div>
+                        </div>
+                        <!-- Hidden field to store course name -->
+                        <input type="hidden" id="courseName" name="courseName">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="content">
+                        <h1 class="heading">Ignite Your IT Career with Knowledge, Skill and Innovation</h1>
+                        <p class="subheading"><b>Join NTI (New Talent Infotech) academy,</b> and supercharge your IT
+                            career
+                            with
+                            knowledge,
+                            skill, and innovation. Embark on a transformative tech journey with us, shaping your future
+                            in the world of technology.</p>
+                        <div class="buttons">
+                            <a href="#courseContainer" class="btn btn-warning">Get Started</a>
+                            <a href="index.html" class="btn btn-outline-secondary">Discover More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 text-center">
+                    <img src="/upload/image/hero-section.avif" alt="Students" class="image">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Our service -->
+
+    <h2 class="text-center mb-4">Our Service</h2>
+    <div class="container">
+        <h1 class="mt-5">Internship Program</h1>
+
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <h3>Internship Program Description</h3>
+                <p>Our internship program offers hands-on experience in the IT industry. Interns work on real-life
+                    projects under the guidance of experienced mentors. Duration: 3 months. Eligibility: Final year
+                    students or recent graduates with a passion for programming.</p>
+                <img src="/upload/image/Internship1.jpg" class="img-fluid" alt="Internship Description Image">
+            </div>
+            <div class="col-md-6">
+                <h3>Mentorship Support</h3>
+                <p>Each intern is assigned a dedicated mentor who provides guidance and support throughout the
+                    internship. Weekly one-on-one sessions are conducted to track progress and provide feedback.</p>
+                <img src="/upload/image/mentor1.png" class="img-fluid" alt="Mentorship Support Image">
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <h3>Real-Life Applications</h3>
+                <p>Interns work on projects that have real-life applications. Projects include web development, mobile
+                    app development, and software engineering. By working on these projects, interns gain practical
+                    experience and develop industry-relevant skills.</p>
+                <img src="/upload/image/real-life-project.jpeg" class="img-fluid" alt="Real-Life Applications Image">
+            </div>
+            <div class="col-md-6">
+                <h3>Placement Guarantee</h3>
+                <p>We guarantee 100% placement assistance to our interns. Our placement cell has tie-ups with leading
+                    companies in the IT industry. Career development workshops and mock interviews are conducted to
+                    prepare interns for job interviews.</p>
+                <img src="/upload/image/job.webp" class="img-fluid" alt="Placement Guarantee Image">
+            </div>
+        </div>
+
+        <div class="mt-5 text-center">
+            <h3>Testimonials</h3>
+            <p>"The internship program at NTI (New Talent Infotech) Academy provided me with valuable experience and
+                helped me kickstart my
+                career in IT." </p>
+            <p>"I'm grateful for the mentorship I received during my internship at NTI Company. It
+                prepared me for the
+                challenges of the industry." </p>
+        </div>
+
+    </div>
+
+
+    <!-- OUR COURSE -->
+
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Our Course</h2>
+
+        <div class="row" id="courseContainer">
+            <!-- Course cards will be dynamically added here -->
+        </div>
+    </div>
+    .
+    <!-- END OUR COURSE -->
+    <!-- about as start -->
+    <div class="container about-as">
+        <h1 class="mt-4 mb-4">About Us</h1>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card1">
+                    <div class="card-body">
+                        <h5 class="card-title">Web Development</h5>
+                        <p class="card-text">Web development is the process of creating websites and web applications.
+                            It includes frontend development using HTML, CSS, and JavaScript to build user interfaces.
+                            Backend development involves server-side programming, databases, and APIs to handle logic
+                            and data management. Full-stack development covers both frontend and backend aspects. Tools
+                            like version control, frameworks, and hosting services aid in building, deploying, and
+                            maintaining web applications securely and efficiently..</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card1">
+                    <div class="card-body">
+                        <h5 class="card-title">Data Science</h5>
+                        <p class="card-text">Data science is the field that uses scientific methods, processes,
+                            algorithms, and systems to extract knowledge and insights from structured and unstructured
+                            data. It involves data collection, cleaning, and preprocessing to prepare data for analysis.
+                            Techniques from statistics, machine learning, and artificial intelligence are applied to
+                            analyze data and build predictive models. Visualization tools and techniques are used to
+                            present insights in an understandable format. Data science is widely used for
+                            decision-making, predictive analytics, and discovering patterns in data across various
+                            industries.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card1">
+                    <div class="card-body">
+                        <h5 class="card-title">Machine Learning</h5>
+                        <p class="card-text">Machine learning is a subset of artificial intelligence where algorithms
+                            are used to learn patterns from data and make predictions or decisions without being
+                            explicitly programmed. It involves training models on datasets, which can be supervised
+                            (with labeled data) or unsupervised (without labeled data). Key techniques include
+                            regression, classification, clustering, and neural networks. The process typically includes
+                            data preprocessing, feature extraction, model training, evaluation, and deployment. Machine
+                            learning is applied in various domains, such as recommendation systems, natural language
+                            processing, and computer vision..</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card1">
+                    <div class="card-body">
+                        <h5 class="card-title">Cloud Computing</h5>
+                        <p class="card-text">Cloud computing delivers computing services like servers, storage,
+                            databases, networking, software, and analytics over the internet ("the cloud"). It allows
+                            users to access and use these resources on-demand without owning physical infrastructure.
+                            Key models include Infrastructure as a Service (IaaS), Platform as a Service (PaaS), and
+                            Software as a Service (SaaS). Benefits include cost savings, scalability, flexibility, and
+                            disaster recovery. Major cloud providers include Amazon Web Services (AWS), Microsoft Azure,
+                            and Google Cloud Platform (GCP). Cloud computing supports various applications, from web
+                            hosting to machine learning and big data analytics.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card1">
+                    <div class="card-body">
+                        <h5 class="card-title">Mobile App Development</h5>
+                        <p class="card-text">Mobile app development involves creating software applications that run on
+                            mobile devices, such as smartphones and tablets. It includes developing apps for different
+                            platforms, primarily iOS (Apple) and Android (Google). Developers use programming languages
+                            like Swift or Objective-C for iOS and Java or Kotlin for Android. Cross-platform development
+                            frameworks, such as React Native and Flutter, allow building apps for multiple platforms
+                            with a single codebase. The process includes designing the user interface (UI), writing
+                            code, testing for performance and usability, and deploying the app to app stores. Mobile
+                            apps are used for various purposes, from social media and gaming to productivity and
+                            e-commerce..</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card1">
+                    <div class="card-body">
+                        <h5 class="card-title">Software Engineering</h5>
+                        <p class="card-text">Software engineering is the systematic application of engineering
+                            principles to the development, operation, and maintenance of software. It involves stages
+                            such as requirement analysis, design, coding, testing, and deployment. Key methodologies
+                            include Agile, Scrum, and Waterfall, which guide the project management and development
+                            process. Software engineers use programming languages like Java, Python, and C++ to write
+                            code. They also utilize tools for version control, debugging, and continuous integration.
+                            The goal is to create reliable, efficient, and scalable software that meets user needs and
+                            can be maintained and updated over time.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card1">
+                    <div class="card-body">
+                        <h5 class="card-title">Network Security</h5>
+                        <p class="card-text">Network security involves protecting computer networks and their data from
+                            unauthorized access, misuse, or disruption. It encompasses hardware and software
+                            technologies, policies, and procedures designed to defend against threats like unauthorized
+                            access, malware, viruses, denial-of-service attacks, and data breaches. Key components of
+                            network security include</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card1">
+                    <div class="card-body">
+                        <h5 class="card-title">Database Management</h5>
+                        <p class="card-text">Database management involves organizing, securing, and optimizing data
+                            within databases using SQL or similar languages. It includes designing database structures,
+                            implementing security measures, and ensuring data integrity. Database administrators oversee
+                            maintenance, backups, and performance tuning to support efficient data storage and retrieva
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Add more cards as needed -->
+        </div>
+    </div>
+    <!-- end about as -->
+
+    <div class="container mt-5" id="About">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <!-- <h2 class="text-center mb-4">About Us</h2> -->
+                <p>We are a leading provider of technical courses, offering a wide range of programs to help individuals
+                    enhance their skills and advance their careers in the tech industry. Our courses cover various
+                    topics including:</p>
+
+                <p>Our team of experienced instructors are dedicated to providing high-quality education and hands-on
+                    training to help our students succeed in their careers. Whether you're a beginner or an experienced
+                    professional, we have courses tailored to meet your learning needs.</p>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- end the contact as form -->
+
+    <script src="java-script/dropdown.js"></script>
+
+
+    <!-- Footer -->
+    <footer class="footer mt-5">
+        <div class="container" id="contact">
+            <div class="row">
+                <div class="col-md-3">
+                    <h5>Company Logo</h5>
+                    <img src="/upload/image/nti1-logo.jpg" alt="Company Logo" class="img-fluid" id="NTI-logo">
+                </div>
+                <div class="col-md-3">
+                    <h5>Address <i class="fas fa-map-marker-alt"></i></h5>
+                    <address>
+                        <a href="https://maps.app.goo.gl/avW7vPVeEbTk7N6P7" target="_blank">
+                            LIG - 2/21/422, Nehru Nagar, Rewa, Madhya Pradesh 486001
+                        </a>
+                    </address>
+                </div>
+                <div class="col-md-3">
+                    <h5>Contact Us</h5>
+                    <form id="contactForm" class="needs-validation" novalidate>
+                        <div class="form-group">
+                            <label for="contactName">Name</label>
+                            <input type="text" class="form-control" id="contactName" placeholder="Enter your name"
+                                required>
+                            <div class="invalid-feedback">Please enter your name.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactEmail">Email address</label>
+                            <input type="email" class="form-control" id="contactEmail" placeholder="Enter your email"
+                                required>
+                            <div class="invalid-feedback">Please enter a valid email address.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactPhone">Phone</label>
+                            <input type="number" class="form-control" id="contactPhone" placeholder="Enter your Number"
+                                required>
+                            <div class="invalid-feedback">Please enter phone number.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactMessage">Message</label>
+                            <textarea class="form-control" id="contactMessage" rows="3" placeholder="Enter your message"
+                                required></textarea>
+                            <div class="invalid-feedback">Please enter your message.</div>
+                        </div>
+                        <button type="submit" id="contactBtn" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+                <div class="col-md-3">
+                    <h5>Follow Us</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="https://www.facebook.com/ntitechacademy" target="_blank"><i
+                                    class="fab fa-facebook"></i> Facebook</a></li>
+                        <li><a href="https://twitter.com/ntitechacademy_" target="_blank"><i class="fab fa-twitter"></i>
+                                Twitter</a></li>
+                        <li><a href="https://www.instagram.com/ntitechacademy/" target="_blank"><i
+                                    class="fab fa-instagram"></i> Instagram</a></li>
+                        <li><a href="https://www.linkedin.com/company/nti-tech-academy/" target="_blank"><i
+                                    class="fab fa-linkedin"></i> LinkedIn</a></li>
+                    </ul>
+                    <button type="button" class="btn btn-secondary btn-admin" data-toggle="modal"
+                        data-target="#adminLoginModal">Admin Login</button>
+                </div>
+            </div>
+            <!-- Copyright notice -->
+            <div class="row">
+                <div class="col-12 text-center" style="background-color: black;">
+                    <p style="color: white;">&copy; 2024 Your Company NTI tech Solution Developed by Deepak
+                        Gupta.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Admin Login Modal -->
+    <div class="modal fade" id="adminLoginModal" tabindex="-1" role="dialog" aria-labelledby="adminLoginModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="adminLoginModalLabel">Admin Login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="adminLoginForm" class="needs-validation" novalidate>
+                        <div class="form-group">
+                            <label for="adminUsername">Username</label>
+                            <input type="text" class="form-control" id="adminUsername" placeholder="Enter username"
+                                required>
+                            <div class="invalid-feedback">Please enter your username.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="adminPassword">Password</label>
+                            <input type="password" class="form-control" id="adminPassword" placeholder="Enter password"
+                                required>
+                            <div class="invalid-feedback">Please enter your password.</div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Frontend code with token verification -->
+
+    <script src="java-script/Coursedata.js"></script>
+
+    <!-- start the java script logic for admin pannel  -->
+    <script>
+        // Handle admin login form submission
+        document.getElementById('adminLoginForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            var username = document.getElementById('adminUsername').value;
+            var password = document.getElementById('adminPassword').value;
+
+            if (username && password) {
+                fetch('http://localhost:3500/api/Admin-login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        username: username,
+                        password: password
+                    })
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            // Redirect to the dashboard on successful login
+                            window.location.href = 'http://localhost:3500/dashborad.html'; // Correct path to your dashboard
+                            alert("login successfully");
+                        } else {
+                            throw new Error(data.message);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Fetch error:', error);
+                        alert('An error occurred while logging in: ' + error.message);
+                    });
+            }
+        });
+    </script>
+
+    <script>
+        // Form contact submit
+        document.getElementById('contactForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent the form from submitting normally
+
+            const name = document.querySelector("#contactName").value;
+            const email = document.querySelector("#contactEmail").value;
+            const phone = document.querySelector("#contactPhone").value;
+            const message = document.querySelector("#contactMessage").value;
+            const jsonData = { name, email, phone, message };
+            console.log(jsonData);
+
+            const empty = jsonData == "";
+            // Send data to API endpoint
+            if (!empty) {
+
+                fetch('http://localhost:3500/api/Contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(jsonData)
+                })
+                    .then(response => {
+                        if (response.ok) {
+                            alert('Message sent successfully!');
+                            // Clear the form after successful submission
+                            document.getElementById('contactForm').reset().value;
+                        } else {
+                            throw new Error('Failed to send message');
+                        }
+                    })
+                    .catch(error => {
+                        // console.error('Error:', error);
+                        alert('Failed to send message. Please try again later.');
+                    });
+            } else {
+                alert('Please fill out all fields');
+            }
+        });
+    </script>
+
+
+
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var aboutLink = document.querySelector('a[href="#about"]');
+            aboutLink.addEventListener("click", function (event) {
+                event.preventDefault();
+                var aboutSection = document.getElementById('About'); // Change 'about' to 'About'
+                aboutSection.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+        document.addEventListener("DOMContentLoaded", function () {
+            var contactLink = document.querySelector('a[href="#contact"]');
+            contactLink.addEventListener("click", function (event) {
+                event.preventDefault();
+                var contactSection = document.getElementById('contact');
+                contactSection.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+    </script>
+
+    <script>// JavaScript for disabling form submissions if there are invalid fields
+        (function () {
+            'use strict';
+            window.addEventListener('load', function (event) {
+                event.preventDefault()
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+    </script>
+    <!-- navigation drop down logic -->
+    <script>
+        // List of courses from the image
+        const courses = [
+            "Machine Learning + AI",
+            "Data Science",
+            "Automation Testing",
+            "Mean Stack",
+            "Digital Marketing",
+            "Mern Stack",
+            "Basics Computer",
+            "Android",
+            "Cloud Computing",
+            "Python",
+            "Manual Testing",
+            "C/C++",
+            "Java Full Stack",
+            "SQL",
+            "Graphic Design",
+            "IOS",
+            "Advance Excel"
+        ];
+
+        // Populate the dropdown list in the navbar with courses
+        const dropdownMenu = document.querySelector('.dropdown-menu');
+        courses.forEach(course => {
+            const a = document.createElement('a');
+            a.className = 'dropdown-item';
+            a.href = '#';
+            a.textContent = course;
+            a.onclick = () => {
+                document.getElementById('course-name').value = course;
+                $('#registerModal').modal('hide');
+
+            };
+            dropdownMenu.appendChild(a);
+        });
+
+        // Populate the dropdown list in the main section with courses
+        const courseSelect = document.getElementById('courseSelect');
+        courses.forEach(course => {
+            const option = document.createElement('option');
+            option.text = course;
+            option.value = course;
+            courseSelect.add(option);
+        });
+    </script>
+</body>
+
+</html>

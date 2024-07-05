@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NTI Tech Academy</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        /* Ensure the dropdown opens on hover */
+        .nav-item.dropdown:hover .dropdown-menu {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#">NTI</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Courses</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Courses
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <!-- Course options will be populated here -->
+                    </div>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" name="name" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+
+    <!-- <div class="container mt-4">
+        <h2 id="course">Select a Course</h2>
+        <div class="form-group">
+            <label for="courseSelect">Courses:</label>
+            <select class="form-control" id="courseSelect">
+                <!-- Course options will be populated here as well -->
+    </select>
+    <!-- </div> -->
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">Register</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Name:</label>
+                            <input type="text" class="form-control" id="recipient-name">
+                        </div>
+                        <div class="form-group">
+                            <label for="recipient-email" class="col-form-label">Email:</label>
+                            <input type="email" class="form-control" id="recipient-email">
+                        </div>
+                        <div class="form-group">
+                            <label for="recipient-phone" class="col-form-label">Phone:</label>
+                            <input type="tel" class="form-control" id="recipient-phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="course-name" class="col-form-label">Course:</label>
+                            <input type="text" class="form-control" id="course-name" readonly>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Register</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // List of courses from the image
+        const courses = [
+            "Machine Learning + AI",
+            "Data Science",
+            "Automation Testing",
+            "Mean Stack",
+            "Digital Marketing",
+            "Mern Stack",
+            "Basics Computer",
+            "Android",
+            "Cloud Computing",
+            "Python",
+            "Manual Testing",
+            "C/C++",
+            "Java Full Stack",
+            "SQL",
+            "Graphic Design",
+            "IOS",
+            "Advance Excel"
+        ];
+
+        // Populate the dropdown list in the navbar with courses
+        const dropdownMenu = document.querySelector('.dropdown-menu');
+        courses.forEach(course => {
+            const a = document.createElement('a');
+            a.className = 'dropdown-item';
+            a.href = '#';
+            a.textContent = course;
+            a.onclick = () => {
+                document.getElementById('course-name').value = course;
+                $('#registerModal').modal('show');
+            };
+            dropdownMenu.appendChild(a);
+        });
+
+        // Populate the dropdown list in the main section with courses
+        const courseSelect = document.getElementById('courseSelect');
+        courses.forEach(course => {
+            const option = document.createElement('option');
+            option.text = course;
+            option.value = course;
+            courseSelect.add(option);
+        });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>

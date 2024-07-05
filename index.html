@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training Courses</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        .firstSectionContainer {
+            padding: 1rem;
+        }
+
+        .was-validated .form-control:invalid {
+            border-color: #dc3545;
+        }
+
+        .was-validated .form-control:valid {
+            border-color: #28a745;
+        }
+
+        .specailButton {
+            text-align: center;
+        }
+
+        .specailButton li {
+            padding: 10px;
+        }
+
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .footer a {
+            color: white;
+        }
+
+        .footer a:hover {
+            color: #ffc107;
+            text-decoration: none;
+        }
+
+        .footer .social-icons a {
+            color: white;
+            font-size: 20px;
+            margin: 0 10px;
+        }
+
+        .footer .social-icons a:hover {
+            color: #ffc107;
+            text-decoration: none;
+        }
+
+        .footer p {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Training Courses</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#home">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Courses</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto specailButton">
+                <li class="nav-item">
+                    <button class="btn btn-outline-primary mr-2" data-toggle="modal"
+                        data-target="#loginModal">Login</button>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#registerModal">Sign Up</button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="row" id="courseContainer">
+            <!-- Course cards will be dynamically added here -->
+        </div>
+    </div>
+
+    <!-- Registration Modal -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">Register for Training</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="registrationForm" class="needs-validation" novalidate>
+                        <div class="form-group">
+                            <label for="courseName">Course</label>
+                            <input type="text" class="form-control" id="courseName" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+                            <div class="invalid-feedback">Please enter your name.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email address</label>
+                            <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                            <div class="invalid-feedback">Please enter a valid email address.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" placeholder="Enter your password"
+                                required>
+                            <div class="invalid-feedback">Please enter your password.</div>
+                        </div>
+                        <button type="submit" id="registerBtn" class="btn btn-primary">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5" id="About">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <h2 class="text-center mb-4">About Us</h2>
+                <p>We are a leading provider of technical courses, offering a wide range of programs to help individuals
+                    enhance their skills and advance their careers in the tech industry. Our courses cover various
+                    topics including:</p>
+                <ul>
+                    <li>Web Development</li>
+                    <li>Data Science</li>
+                    <li>Machine Learning</li>
+                    <li>Cloud Computing</li>
+                    <li>Mobile App Development</li>
+                    <li>Software Engineering</li>
+                    <li>Network Security</li>
+                    <li>Database Management</li>
+                    <li>and many more...</li>
+                </ul>
+                <p>Our team of experienced instructors are dedicated to providing high-quality education and hands-on
+                    training to help our students succeed in their careers. Whether you're a beginner or an experienced
+                    professional, we have courses tailored to meet your learning needs.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm" class="needs-validation" novalidate>
+                        <div class="form-group">
+                            <label for="loginEmail">Email address</label>
+                            <input type="email" class="form-control" id="loginEmail" placeholder="Enter your email"
+                                required>
+                            <div class="invalid-feedback">Please enter a valid email address.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword">Password</label>
+                            <input type="password" class="form-control" id="loginPassword"
+                                placeholder="Enter your password" required>
+                            <div class="invalid-feedback">Please enter your password.</div>
+                        </div>
+                        <button type="submit" id="loginBtn" class="btn btn-primary">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- conatact as form-->
+    <div class="container contact-form">
+        <div class="contact-image">
+            <img src="https://image.ibb.co/kUagtU/rocket_contact.png" alt="rocket_contact" />
+        </div>
+        <form method="post">
+            <h3>Contact Us</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input type="text" name="txtName" class="form-control" placeholder="Your Name *" value="" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="txtPhone" class="form-control" placeholder="Your Phone Number *"
+                            value="" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="txtEmail" class="form-control" placeholder="Your Email *" value="" />
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" name="btnSubmit" class="btnContact" value="Send Message" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- end contact as form -->
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-telegram"></i></a>
+        </div>
+        <div class="contact">
+            <p>Contact: example@example.com</p>
+        </div>
+        <div class="copy">
+            <p>&copy; 2024 Your Company Name. All Rights Reserved. Developed by Deepak Gupta </p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap and other scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Fetch courses from the local JSON file
+            fetch('courses.json')
+                .then(response => response.json())
+                .then(courses => {
+                    const courseContainer = document.getElementById('courseContainer');
+                    courses.forEach(course => {
+                        const courseCard = document.createElement('div');
+                        courseCard.classList.add('col-md-4', 'mb-4');
+                        courseCard.innerHTML = `
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">${course.name}</h5>
+                                    <p class="card-text">${course.description}</p>
+                                    <button class="btn btn-primary register-btn" data-toggle="modal" data-target="#registerModal" data-course="${course.name}">Register</button>
+                                </div>
+                            </div>
+                        `;
+                        courseContainer.appendChild(courseCard);
+                    });
+
+                    // Add event listener to register buttons
+                    const registerButtons = document.querySelectorAll('.register-btn');
+                    registerButtons.forEach(button => {
+                        button.addEventListener('click', (event) => {
+                            const courseName = event.target.getAttribute('data-course');
+                            document.getElementById('courseName').value = courseName;
+                        });
+                    });
+                })
+                .catch(error => console.error('Error fetching courses:', error));
+        });
+    </script>
+</body>
+
+</html>

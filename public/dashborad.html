@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Add styles for header */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            max-height: 50px;
+            margin-right: 10px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav li {
+            margin: 0 10px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Add some margin to the container */
+        .container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="/upload/image/logo.jpeg" alt="Company Logo">
+            <h1>NTI()</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="fetchContacts()">View Contacts</a></li>
+                <!-- <li><a href="#" onclick="fetchUsers()">View Users</a></li> -->
+                <li><a href="add_course.html">Add Course</a></li>
+                <!-- <li><a href="add_user.html">Add User</a></li> -->
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div id="content">
+            <!-- Content will be dynamically updated here -->
+        </div>
+    </div>
+
+    <script>
+        async function fetchContacts() {
+            try {
+                const response = await fetch('http://localhost:3500/api/Contactlist');
+                const contacts = await response.json();
+                displayContacts(contacts);
+            } catch (error) {
+                console.error('Error fetching contacts:', error);
+            }
+        }
+
+        function displayContacts(contacts) {
+            const contentDiv = document.getElementById('content');
+            contentDiv.innerHTML = ''; // Clear previous content
+
+            if (contacts.length === 0) {
+                contentDiv.innerHTML = '<p>No contacts found.</p>';
+                return;
+            }
+
+            const table = document.createElement('table');
+            table.className = 'table table-striped';
+
+            const thead = document.createElement('thead');
+            const headerRow = document.createElement('tr');
+            ['Name', 'Email', 'Phone', 'Message', 'Actions'].forEach(text => {
+                const th = document.createElement('th');
+                th.textContent = text;
+                headerRow.appendChild(th);
+            });
+            thead.appendChild(headerRow);
+            table.appendChild(thead);
+
+            const tbody = document.createElement('tbody');
+            contacts.forEach(contact => {
+                const row = document.createElement('tr');
+
+                const nameCell = document.createElement('td');
+                nameCell.textContent = contact.name;
+                row.appendChild(nameCell);
+
+                const emailCell = document.createElement('td');
+                emailCell.textContent = contact.email;
+                row.appendChild(emailCell);
+
+                const phoneCell = document.createElement('td');
+                phoneCell.textContent = contact.phone;
+                row.appendChild(phoneCell);
+
+                const messageCell = document.createElement('td');
+                messageCell.textContent = contact.message;
+                row.appendChild(messageCell);
+
+                const actionsCell = document.createElement('td');
+
+                const updateButton = document.createElement('button');
+                updateButton.className = 'btn btn-primary btn-sm mr-2';
+                updateButton.textContent = 'Update';
+                updateButton.onclick = () => showUpdateForm(contact);
+                actionsCell.appendChild(updateButton);
+
+                const deleteButton = document.createElement('button');
+                deleteButton.className = 'btn btn-danger btn-sm';
+                deleteButton.textContent = 'Delete';
+                deleteButton.onclick = () => deleteContact(contact._id);
+                actionsCell.appendChild(deleteButton);
+
+                row.appendChild(actionsCell);
+                tbody.appendChild(row);
+            });
+            table.appendChild(tbody);
+
+            contentDiv.appendChild(table);
+        }
+
+        function showUpdateForm(contact) {
+            const contentDiv = document.getElementById('content');
+            contentDiv.innerHTML = `
+                <h2>Update Contact</h2>
+                <form id="update-form">
+                    <input type="hidden" id="update-id" value="${contact._id}">
+                    <div class="form-group">
+                        <label for="update-name">Name</label>
+                        <input type="text" class="form-control" id="update-name" value="${contact.name}">
+                    </div>
+                    <div class="form-group">
+                        <label for="update-email">Email</label>
+                        <input type="email" class="form-control" id="update-email" value="${contact.email}">
+                    </div>
+                    <div class="form-group">
+                        <label for="update-phone">Phone</label>
+                        <input type="text" class="form-control" id="update-phone" value="${contact.phone}">
+                    </div>
+                    <div class="form-group">
+                        <label for="update-message">Message</label>
+                        <textarea class="form-control" id="update-message">${contact.message}</textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Update Contact</button>
+                </form>
+            `;
+
+            document.getElementById('update-form').addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                const id = document.getElementById('update-id').value;
+                const name = document.getElementById('update-name').value;
+                const email = document.getElementById('update-email').value;
+                const phone = document.getElementById('update-phone').value;
+                const message = document.getElementById('update-message').value;
+
+                try {
+                    const response = await fetch(`http://localhost:3500/api/Contactlist/${id}`, {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ name, email, phone, message })
+                    });
+
+                    if (response.ok) {
+                        alert('Contact updated successfully');
+                        fetchContacts();
+                    } else {
+                        alert('Failed to update contact');
+                    }
+                } catch (error) {
+                    console.error('Error updating contact:', error);
+                }
+            });
+        }
+
+        async function deleteContact(id) {
+            try {
+                const response = await fetch(`http://localhost:3500/api/Contactlist/${id}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    alert('Contact deleted successfully');
+                    fetchContacts();
+                } else {
+                    alert('Failed to delete contact');
+                }
+            } catch (error) {
+                console.error('Error deleting contact:', error);
+            }
+        }
+    </script>
+</body>
+
+</html>

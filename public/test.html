@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training Courses</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="css/home.css">
+    <style>
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#">NTI</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Courses
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <!-- Course options will be populated here -->
+                    </div>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" name="name" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+
+    <!-- Registration Modal -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">Register for Training</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="registrationForm" class="needs-validation" novalidate>
+                        <div class="form-group">
+                            <label for="courseName">Course</label>
+                            <input type="text" class="form-control" id="courseName">
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+                            <div class="invalid-feedback">Please enter your name.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email address</label>
+                            <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                            <div class="invalid-feedback">Please enter a valid email address.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" placeholder="Enter your password"
+                                required>
+                            <div class="invalid-feedback">Please enter your password.</div>
+                        </div>
+                        <button type="submit" id="registerBtn" class="btn btn-primary">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="content">
+                        <h1 class="heading">Ignite Your IT Career with Knowledge, Skill and Innovation</h1>
+                        <p class="subheading"><b>Join NTI (New Talent Infotech) academy,</b> and supercharge your IT
+                            career
+                            with
+                            knowledge,
+                            skill, and innovation. Embark on a transformative tech journey with us, shaping your future
+                            in the world of technology.</p>
+                        <div class="buttons">
+                            <a href="#" class="btn btn-warning">Get Started</a>
+                            <a href="#" class="btn btn-outline-secondary">Discover More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 text-center">
+                    <img src="/upload/image/hero-section.avif" alt="Students" class="image">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Our service -->
+
+    <h2 class="text-center mb-4">Our Service</h2>
+    <div class="container">
+        <h1 class="mt-5">Internship Program</h1>
+
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <h3>Internship Program Description</h3>
+                <p>Our internship program offers hands-on experience in the IT industry. Interns work on real-life
+                    projects under the guidance of experienced mentors. Duration: 3 months. Eligibility: Final year
+                    students or recent graduates with a passion for programming.</p>
+                <img src="/upload/image/Internship1.jpg" class="img-fluid" alt="Internship Description Image">
+            </div>
+            <div class="col-md-6">
+                <h3>Mentorship Support</h3>
+                <p>Each intern is assigned a dedicated mentor who provides guidance and support throughout the
+                    internship. Weekly one-on-one sessions are conducted to track progress and provide feedback.</p>
+                <img src="/upload/image/mentor1.png" class="img-fluid" alt="Mentorship Support Image">
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <h3>Real-Life Applications</h3>
+                <p>Interns work on projects that have real-life applications. Projects include web development, mobile
+                    app development, and software engineering. By working on these projects, interns gain practical
+                    experience and develop industry-relevant skills.</p>
+                <img src="/upload/image/real-life-project.jpeg" class="img-fluid" alt="Real-Life Applications Image">
+            </div>
+            <div class="col-md-6">
+                <h3>Placement Guarantee</h3>
+                <p>We guarantee 100% placement assistance to our interns. Our placement cell has tie-ups with leading
+                    companies in the IT industry. Career development workshops and mock interviews are conducted to
+                    prepare interns for job interviews.</p>
+                <img src="/upload/image/job.webp" class="img-fluid" alt="Placement Guarantee Image">
+            </div>
+        </div>
+
+        <div class="mt-5 text-center">
+            <h3>Testimonials</h3>
+            <p>"The internship program at NTI (New Talent Infotech) Academy provided me with valuable experience and
+                helped me kickstart my
+                career in IT." </p>
+            <p>"I'm grateful for the mentorship I received during my internship at NTI Company. It
+                prepared me for the
+                challenges of the industry." </p>
+        </div>
+
+    </div>
+
+    <!-- OUR COURSE -->
+
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Our Course</h2>
+
+        <div class="row" id="courseContainer">
+            <!-- Course cards will be dynamically added here -->
+        </div>
+    </div>
+
+    <!-- about as start -->
+    <div class="container about-as">
+        <h1 class="mt-4 mb-4">About Us</h1>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card1">
+                    <div class="card-body">
+                        <h5 class="card-title">Web Development</h5>
+                        <p class="card-text">Web development is the process of creating websites and web applications.
+                            It includes frontend development using HTML, CSS, and JavaScript to build user interfaces.
+                            Backend development involves server-side programming, databases, and APIs to handle logic
+                            and data management. Full-stack development covers both frontend and backend aspects. Tools
+                            like version control, frameworks, and hosting services aid in building, deploying, and
+                            maintaining web applications securely and efficiently..</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card1">
+                    <div class="card-body">
+                        <h5 class="card-title">Data Science</h5>
+                        <p class="card-text">Data science involves extracting insights and knowledge from data through
+                            various techniques such as statistical analysis, machine learning, and data visualization.
+                            It combines domain expertise, programming skills, and knowledge of mathematics and
+                            statistics to process and analyze structured and unstructured data. Data scientists use
+                            tools like Python, R, and SQL to clean, model, and interpret data, enabling data-driven
+                            decision-making and solving complex problems across different industries.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card1">
+                    <div class="card-body">
+                        <h5 class="card-title">Machine Learning</h5>
+                        <p class="card-text">Machine learning is a subset of artificial intelligence that focuses on
+                            creating algorithms and models that enable computers to learn and make predictions from
+                            data. It involves supervised, unsupervised, and reinforcement learning techniques.
+                            Applications range from image and speech recognition to recommendation systems and
+                            autonomous
+                            vehicles. Popular frameworks like TensorFlow and PyTorch, along with languages such as
+                            Python, are used to develop and deploy machine learning models that improve over time
+                            through experience.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="card1">
+                    <div class="card-body">
+                        <h5 class="card-title">Cloud Computing</h5>
+                        <p class="card-text">Cloud computing involves delivering computing services such as servers,
+                            storage, databases, networking, software, and analytics over the internet. It offers
+                            flexible resources, scalability, and cost efficiency, enabling businesses to access and
+                            manage their data and applications from anywhere. Cloud providers like AWS, Azure, and
+                            Google Cloud offer various services, including Infrastructure as a Service (IaaS), Platform
+                            as a Service (PaaS), and Software as a Service (SaaS), facilitating innovation and digital
+                            transformation.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card1">
+                    <div class="card-body">
+                        <h5 class="card-title">Mobile App Development</h5>
+                        <p class="card-text">Mobile app development involves creating software applications that run on
+                            mobile devices such as smartphones and tablets. It encompasses designing, coding, testing,
+                            and deploying applications for platforms like iOS and Android. Developers use languages like
+                            Swift, Kotlin, and Java, along with frameworks such as React Native and Flutter, to build
+                            native and cross-platform apps. Key considerations include user experience, performance, and
+                            security to ensure seamless and efficient mobile applications for users.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card1">
+                    <div class="card-body">
+                        <h5 class="card-title">Software Engineering</h5>
+                        <p class="card-text">Software engineering is the disciplined approach to designing, developing,
+                            testing, and maintaining software systems. It involves applying engineering principles and
+                            best practices to create reliable, efficient, and scalable software. Software engineers use
+                            programming languages, frameworks, and tools to build applications, while also focusing on
+                            requirements analysis, design patterns, testing methodologies, and project management to
+                            ensure the successful delivery of high-quality software products.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="card1">
+                    <div class="card-body">
+                        <h5 class="card-title">Network Security</h5>
+                        <p class="card-text">Network security involves protecting computer networks and data from
+                            unauthorized access, breaches, and cyber threats. It encompasses measures like firewalls,
+                            encryption, intrusion detection systems, and secure protocols to safeguard sensitive
+                            information and ensure data integrity and confidentiality. Network security professionals
+                            implement security policies, conduct risk assessments, and stay updated on the latest
+                            threats to prevent and mitigate cyber attacks, ensuring the reliability and trustworthiness
+                            of network infrastructures.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card1">
+                    <div class="card-body">
+                        <h5 class="card-title">Database Management</h5>
+                        <p class="card-text">Database management involves the systematic organization, storage, and
+                            retrieval of data using database management systems (DBMS). It includes designing database
+                            schemas, implementing data models, and ensuring data integrity, security, and performance.
+                            Database administrators (DBAs) use SQL and other tools to manage and optimize databases,
+                            handle backups and recovery, and support data-driven applications, enabling efficient and
+                            reliable access to critical information for businesses and organizations.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card1">
+                    <div class="card-body">
+                        <h5 class="card-title">Introduction to Cybersecurity</h5>
+                        <p class="card-text">Introduction to Cybersecurity covers the fundamental concepts and
+                            principles of protecting computer systems and networks from cyber threats. It includes
+                            topics such as threat analysis, security protocols, encryption, and risk management.
+                            Students learn about common cyber attacks, defense mechanisms, and best practices for
+                            safeguarding digital assets. This foundational knowledge is essential for pursuing advanced
+                            studies and careers in the rapidly evolving field of cybersecurity.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="card1">
+                    <div class="card-body">
+                        <h5 class="card-title">Big Data Analysis</h5>
+                        <p class="card-text">Big Data Analysis involves processing and analyzing large and complex data
+                            sets to uncover patterns, trends, and insights. It utilizes advanced analytics techniques
+                            and tools like Hadoop, Spark, and data visualization software. By harnessing big data,
+                            organizations can make data-driven decisions, optimize operations, and gain a competitive
+                            edge. This field requires skills in data mining, statistical analysis, and machine learning
+                            to extract valuable information from massive volumes of data across various industries.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card1">
+                    <div class="card-body">
+                        <h5 class="card-title">Artificial Intelligence</h5>
+                        <p class="card-text">Artificial Intelligence (AI) involves creating intelligent systems that can
+                            perform tasks requiring human intelligence, such as speech recognition, decision-making, and
+                            problem-solving. It includes machine learning, natural language processing, computer vision,
+                            and robotics. AI technologies enable automation, enhance user experiences, and drive
+                            innovation across various industries, from healthcare to finance. AI development requires
+                            expertise in algorithms, data science, and programming languages to build and deploy
+                            intelligent applications.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card1">
+                    <div class="card-body">
+                        <h5 class="card-title">Digital Marketing</h5>
+                        <p class="card-text">Digital Marketing involves promoting products and services using digital
+                            channels such as social media, search engines, email, and websites. It includes strategies
+                            like SEO, content marketing, PPC advertising, and analytics. Digital marketers create
+                            engaging content, optimize online presence, and analyze data to drive traffic, generate
+                            leads, and increase conversions. This dynamic field requires creativity, technical skills,
+                            and an understanding of consumer behavior to effectively reach and engage target
+                            audiences.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- about as end -->
+
+    <!-- contact us start -->
+    <section class="contact py-5" id="contact">
+        <div class="container">
+            <h1 class="text-center">Contact Us</h1>
+            <div class="row mt-5">
+                <div class="col-md-6">
+                    <h3>Get in touch</h3>
+                    <p>Have questions? Reach out to us through any of the following methods:</p>
+                    <ul>
+                        <li><strong>Email:</strong> <a href="mailto:info@ntiacademy.com">info@ntiacademy.com</a></li>
+                        <li><strong>Phone:</strong> +1 234 567 890</li>
+                        <li><strong>Address:</strong> 123 Tech Street, City, Country</li>
+                    </ul>
+                    <p>We'd love to hear from you and discuss how we can help you achieve your IT career goals!</p>
+                </div>
+                <div class="col-md-6">
+                    <h3>Send us a message</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="contactName">Name</label>
+                            <input type="text" class="form-control" id="contactName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactEmail">Email</label>
+                            <input type="email" class="form-control" id="contactEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactMessage">Message</label>
+                            <textarea class="form-control" id="contactMessage" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- contact us end -->
+
+    <footer class="bg-light text-center py-4">
+        <div class="container">
+            <p>&copy; 2023 NTI Academy. All rights reserved.</p>
+            <p>Privacy Policy | Terms & Conditions</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/home.js"></script>
+    <script src="java-script/dropdown.js"></script>
+</body>
+
+</html>

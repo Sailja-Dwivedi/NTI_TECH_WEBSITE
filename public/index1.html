@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>demo</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        .firstSectionContainer {
+            padding: 1rem;
+        }
+
+        .was-validated .form-control:invalid {
+            border-color: #dc3545;
+        }
+
+        .was-validated .form-control:valid {
+            border-color: #28a745;
+        }
+
+        .specailButton {
+            text-align: center;
+        }
+
+        .specailButton li {
+            padding: 10px;
+        }
+
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .footer a {
+            color: white;
+        }
+
+        .footer a:hover {
+            color: #ffc107;
+            text-decoration: none;
+        }
+
+        .footer .social-icons a {
+            color: white;
+            font-size: 20px;
+            margin: 0 10px;
+        }
+
+        .footer .social-icons a:hover {
+            color: #ffc107;
+            text-decoration: none;
+        }
+
+        /* Additional styles for footer */
+        .footer p {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Training Courses</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#home">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Courses</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto specailButton">
+                <li class="nav-item">
+                    <button class="btn btn-outline-primary mr-2" data-toggle="modal"
+                        data-target="#loginModal">Login</button>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#registerModal">Sign Up</button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="row" id="courseContainer">
+            <!-- Course cards will be dynamically added here -->
+        </div>
+    </div>
+
+    <div class="container mt-5" id="About">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <h2 class="text-center mb-4">About Us</h2>
+                <p>We are a leading provider of technical courses, offering a wide range of programs to help individuals
+                    enhance their skills and advance their careers in the tech industry. Our courses cover various
+                    topics including:</p>
+                <ul>
+                    <li>Web Development</li>
+                    <li>Data Science</li>
+                    <li>Machine Learning</li>
+                    <li>Cloud Computing</li>
+                    <li>Mobile App Development</li>
+                    <li>Software Engineering</li>
+                    <li>Network Security</li>
+                    <li>Database Management</li>
+                    <li>and many more...</li>
+                </ul>
+                <p>Our team of experienced instructors are dedicated to providing high-quality education and hands-on
+                    training to help our students succeed in their careers. Whether you're a beginner or an experienced
+                    professional, we have courses tailored to meet your learning needs.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Registration Modal -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">Register for Course</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="registrationForm" class="needs-validation" novalidate>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+                            <div class="invalid-feedback">Please enter your name.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email address</label>
+                            <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                            <div class="invalid-feedback">Please enter a valid email address.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="text" class="form-control" id="phone" placeholder="Enter your phone number"
+                                required>
+                            <div class="invalid-feedback">Please enter your phone number.</div>
+                        </div>
+                        <!-- Hidden field to store course name -->
+                        <input type="hidden" id="courseName" name="courseName">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer" id="contact">
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-telegram"></i></a>
+        </div>
+        <div class="contact">
+            <p>Contact: example@example.com</p>
+        </div>
+        <div class="copy">
+            <p>&copy; 2024 Your Company Name. All Rights Reserved. Developed by deepak gupta </p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        function fetchAndDisplayCourses() {
+            fetch('http://localhost:3500/api/allcourse')
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    const courseContainer = document.getElementById('courseContainer');
+                    data.courses.forEach(course => {
+                        const courseCard = document.createElement('div');
+                        courseCard.classList.add('col-md-4', 'course-card');
+
+                        const courseImage = document.createElement('img');
+                        courseImage.classList.add('course-image', 'w-100');
+
+                        const cleanedImagePath = course.image.replace(/..[\\/]+public[\\/]+/, '');
+                        courseImage.src = `${cleanedImagePath}`;
+                        courseImage.alt = course.name;
+
+                        const courseDetails = document.createElement('div');
+                        courseDetails.classList.add('course-details');
+
+                        const courseName = document.createElement('h5');
+                        courseName.textContent = course.name;
+
+                        const courseDescription = document.createElement('p');
+                        courseDescription.textContent = course.description;
+
+                        const courseCategory = document.createElement('p');
+                        courseCategory.textContent = `Category: ${course.category}`;
+
+                        const coursePrice = document.createElement('p');
+                        coursePrice.textContent = `Price: $${course.price}`;
+
+                        const registerButton = document.createElement('button');
+                        registerButton.textContent = 'Register';
+                        registerButton.classList.add('btn', 'btn-primary', 'mt-2', 'register');
+                        registerButton.setAttribute('data-course-name', course.name);
+                        registerButton.onclick = function () {
+                            openRegistrationModal(course.name);
+                        };
+
+                        courseDetails.appendChild(courseName);
+                        courseDetails.appendChild(courseDescription);
+                        courseDetails.appendChild(courseCategory);
+                        courseDetails.appendChild(coursePrice);
+                        courseDetails.appendChild(registerButton);
+
+                        courseCard.appendChild(courseImage);
+                        courseCard.appendChild(courseDetails);
+
+                        courseContainer.appendChild(courseCard);
+                    });
+                })
+                .catch(error => console.error('Error fetching courses:', error));
+        }
+
+        function openRegistrationModal(courseName) {
+            const modal = document.getElementById('registerModal');
+            const courseNameInput = modal.querySelector('#courseName');
+            courseNameInput.value = courseName;
+            $('#registerModal').modal('show');
+        }
+
+        function registerUser(name, email, phone, courseName) {
+            var payload = {
+                name: name,
+                email: email,
+                phone: phone,
+                courseName: courseName
+            };
+            console.log(payload);
+            const options = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            };
+            const endpoint = 'http://localhost:3500/api/registerForCourse'; // Replace with your actual endpoint
+
+            fetch(endpoint, options)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Registration successful:', data);
+                    alert('Registration successful!');
+                    $('#registerModal').modal('hide');
+                    // Optionally, you can display a success message or redirect the user to a new page
+                })
+                .catch(error => {
+                    console.error('Error registering user:', error.message);
+                    alert('Error registering user: ' + error.message);
+                    // Optionally, you can display an error message to the user
+                });
+        }
+
+        document.getElementById('registrationForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const courseName = document.getElementById('courseName').value;
+
+            console.log("data", name, email, phone, courseName);
+            registerUser(name, email, phone, courseName);
+        });
+
+        document.addEventListener('DOMContentLoaded', fetchAndDisplayCourses);
+    </script>
+</body>
+
+</html>
