@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Registrations</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="mt-5">Course Registrations</h1>
+        <table class="table table-striped mt-3" id="courseTable">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Course Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Data will be inserted here -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- jQuery and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('https://nti-tech-website.onrender.com/api/regitser-course-data')  // Ensure this is the correct API endpoint
+                .then(response => response.json())
+                .then(data => {
+                    const tableBody = document.querySelector('#courseTable tbody');
+                    data.data.forEach(course => {
+                        const row = document.createElement('tr');
+
+                        const cellId = document.createElement('td');
+                        cellId.textContent = course._id;
+                        row.appendChild(cellId);
+
+                        const cellName = document.createElement('td');
+                        cellName.textContent = course.name;
+                        row.appendChild(cellName);
+
+                        const cellEmail = document.createElement('td');
+                        cellEmail.textContent = course.email;
+                        row.appendChild(cellEmail);
+
+                        const cellPhone = document.createElement('td');
+                        cellPhone.textContent = course.phone;
+                        row.appendChild(cellPhone);
+
+                        const cellCourseName = document.createElement('td');
+                        cellCourseName.textContent = course.courseName;
+                        row.appendChild(cellCourseName);
+
+                        tableBody.appendChild(row);
+                    });
+                })
+                .catch(error => console.error('Error fetching data:', error));
+        });
+    </script>
+</body>
+
+</html>

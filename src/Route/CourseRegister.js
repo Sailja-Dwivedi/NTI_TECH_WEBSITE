@@ -20,4 +20,20 @@ CourseRegisterRoute.post('/registerForCourse', async (req, res) => {
         res.status(500).json({ message: 'Error registering user', error: error.message });
     }
 });
+
+
+CourseRegisterRoute.get("/regitser-course-data", async (req, res) => {
+    try {
+        const registerdata = await CourseRegister.find();
+        // console.log()
+        res.status(200).json({
+            data: registerdata
+        })
+
+    } catch (e) {
+        res.status(500).json({ message: "Error getting data", error: e.message });
+
+    }
+
+});
 module.exports = { CourseRegisterRoute };
