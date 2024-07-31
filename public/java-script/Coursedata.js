@@ -144,8 +144,8 @@
 //     //     loginForm.classList.add('was-validated');
 //     // });
 // });
- 
-var endpoint=`https://nti-tech-website.onrender.com/`
+
+var endpoint = `https://nti-tech-website.onrender.com/`
 
 
 
@@ -182,7 +182,7 @@ function fetchAndDisplayCourses() {
                 coursePrice.textContent = `Price: $${course.price}`;
 
                 const registerButton = document.createElement('button');
-                registerButton.textContent = 'Register';
+                registerButton.textContent = 'Enroll';
                 registerButton.classList.add('btn', 'btn-primary', 'mt-2', 'register');
                 registerButton.setAttribute('data-course-name', course.name);
                 registerButton.onclick = function () {
@@ -226,7 +226,7 @@ function registerUser(name, email, phone, courseName) {
         },
         body: JSON.stringify(payload)
     };
-   // const endpoint = endpoint+; // Replace with your actual endpoint
+    // const endpoint = endpoint+; // Replace with your actual endpoint
 
     fetch(`${endpoint}api/registerForCourse`, options)
         .then(response => {

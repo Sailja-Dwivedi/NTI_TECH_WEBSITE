@@ -10,7 +10,7 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="css/home.css">
     <style>
-      
+
     </style>
 </head>
 
@@ -478,7 +478,7 @@
         });
     </script>
 
-    <script>
+    <!-- <script>
         // Form contact submit
         document.getElementById('contactForm').addEventListener('submit', function (event) {
             event.preventDefault(); // Prevent the form from submitting normally
@@ -518,8 +518,60 @@
                 alert('Please fill out all fields');
             }
         });
-    </script>
+    </script> -->
 
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function () {
+            'use strict';
+            window.addEventListener('load', function () {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        } else {
+                            // Handle form submission
+                            event.preventDefault(); // Prevent the form from submitting normally
+
+                            const name = document.querySelector("#contactName").value;
+                            const email = document.querySelector("#contactEmail").value;
+                            const phone = document.querySelector("#contactPhone").value;
+                            const message = document.querySelector("#contactMessage").value;
+                            const jsonData = { name, email, phone, message };
+                            console.log(jsonData);
+
+                            fetch('https://nti-tech-website.onrender.com/api/Contact', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify(jsonData)
+                            })
+                                .then(response => {
+                                    if (response.ok) {
+                                        alert('Message sent successfully!');
+                                        // Clear the form after successful submission
+                                        form.reset();
+                                        form.classList.remove('was-validated');
+                                    } else {
+                                        throw new Error('Failed to send message');
+                                    }
+                                })
+                                .catch(error => {
+                                    console.error('Error:', error);
+                                    alert('Failed to send message. Please try again later.');
+                                });
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+    </script>
 
 
 
