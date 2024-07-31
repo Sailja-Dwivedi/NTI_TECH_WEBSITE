@@ -1,4 +1,3 @@
-
 // Form contact submit footer form
 document.getElementById('contactForm').addEventListener('submit', function (event) {
     event.preventDefault(); // Prevent the form from submitting normally
@@ -32,10 +31,9 @@ document.getElementById('contactForm').addEventListener('submit', function (even
             })
             .catch(error => {
                 // console.error('Error:', error);
-                alert('Failed to send message. Please try again later.');
+                // alert('Failed to send message. Please try again later.');
             });
     } else {
         alert('Please fill out all fields');
     }
 });
-
