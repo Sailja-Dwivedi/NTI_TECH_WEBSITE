@@ -182,7 +182,7 @@ function fetchAndDisplayCourses() {
                 coursePrice.textContent = `Price: $${course.price}`;
 
                 const registerButton = document.createElement('button');
-                registerButton.textContent = 'Enroll';
+                registerButton.textContent = 'Register';
                 registerButton.classList.add('btn', 'btn-primary', 'mt-2', 'register');
                 registerButton.setAttribute('data-course-name', course.name);
                 registerButton.onclick = function () {
