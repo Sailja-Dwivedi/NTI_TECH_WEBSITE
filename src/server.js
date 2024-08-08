@@ -59,7 +59,7 @@ const { LoginRouter } = require("./Route/LoginRoute");
 const { verifyTokenrouter } = require("./Route/jwtRoute");
 const { addCourse } = require("./addCourse");
 const { searchRouter } = require("./Route/searchRoute");
-const ContactRoute = require("./contactAs");
+const { ContactRoute } = require("./contactAs");
 const { Admin_pannel } = require("./Route/admin_panel");
 const { Contactdata } = require("./Route/contactdatalist");
 const { CourseRegisterRoute } = require("./Route/CourseRegister");
@@ -89,6 +89,7 @@ app.use("/api", verifyTokenrouter);
 app.use("/api", addCourse);
 app.use('/api', searchRouter);
 app.use('/api', ContactRoute);
+
 app.use('/api', Admin_pannel);
 app.use('/api', Contactdata);
 app.use('/api', CourseRegisterRoute);

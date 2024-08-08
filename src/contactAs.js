@@ -33,4 +33,4 @@ ContactRoute.post("/Contact", validateContactForm, async (req, res) => {
     }
 });
 
-module.exports = ContactRoute;
+module.exports = { ContactRoute };
