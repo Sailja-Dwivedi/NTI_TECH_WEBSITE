@@ -4,10 +4,21 @@ const multer = require("multer");
 const { courseModel } = require('./modal/courses_add');
 const cloudinary = require("cloudinary");
 const fs = require('fs'); // local file delete karne ke liye
+const path = require('path');
+
+// Ensure upload directory exists
+const uploadDir = path.join(__dirname, 'upload');
+if (!fs.existsSync(uploadDir)) {
+    fs.mkdirSync(uploadDir);
+}
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, './upload');
+        const uploadPath = './upload';
+
+        // Ensure the directory exists, if not create it
+        fs.mkdirSync(uploadPath, { recursive: true });
+        cb(null, uploadPath);
     },
     filename: function (req, file, cb) {
         const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
@@ -24,19 +35,17 @@ cloudinary.config({
     api_key: process.env.CLODINARY_API_KEY,
     api_secret: process.env.CLODINARY_API_SECRET
 });
-// console.log(process.env.CLODINARY_API_KEY);
 
 // Add Course
 addCourse.post('/addCourse', upload.single('image'), async (req, res) => {
-    // console.log(req.body); // log request body
-    // console.log(req.file); // log file details
-    // res.send("hello");
     try {
+        // Cloudinary pe image upload karte hain aur result ka wait karte hain
         const result = await cloudinary.uploader.upload(req.file.path);
+        // Local file ko upload hone ke baad delete kar dete hain
         fs.unlinkSync(req.file.path);
 
         const { name, description } = req.body;
-        const image = result.secure_url;
+        const image = result.secure_url; // Cloudinary se secure URL use karte hain
 
         const newCourse = new courseModel({ name, description, image });
         await newCourse.save();
@@ -54,7 +63,6 @@ addCourse.post('/addCourse', upload.single('image'), async (req, res) => {
     }
 });
 
-
 // Update Course
 addCourse.put('/updateCourse/:id', upload.single('image'), async (req, res) => {
     try {
@@ -62,14 +70,19 @@ addCourse.put('/updateCourse/:id', upload.single('image'), async (req, res) => {
         const { name, description } = req.body;
         let updateData = { name, description };
 
+        // Check if image is uploaded
         if (req.file) {
+            // Cloudinary pe image upload karte hain aur result ka wait karte hain
             const result = await cloudinary.uploader.upload(req.file.path);
+            // Local file ko upload hone ke baad delete kar dete hain
             fs.unlinkSync(req.file.path);
-            updateData.image = result.secure_url;
+            updateData.image = result.secure_url; // Cloudinary se secure URL use karte hain
         }
 
+        // Find course by ID and update
         const updatedCourse = await courseModel.findByIdAndUpdate(id, updateData, { new: true });
 
+        // Check if course was found and updated
         if (updatedCourse) {
             res.status(200).json({
                 message: "Course updated successfully",
@@ -93,7 +106,7 @@ addCourse.put('/updateCourse/:id', upload.single('image'), async (req, res) => {
 addCourse.get('/allCourses', async (req, res) => {
     try {
         const courses = await courseModel.find();
-        // console.log(courses);
+        console.log(courses);
         res.status(200).json({
             message: "All courses fetched successfully",
             data: courses
