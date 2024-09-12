@@ -21,7 +21,7 @@ document.getElementById('contactForm').addEventListener('submit', function (even
             body: JSON.stringify(jsonData)
         })
             .then(response => {
-                if (response.ok) {
+                if (response) {
                     alert('Message sent successfully!');
                     // Clear the form after successful submission
                     document.getElementById('contactForm').reset().value;
