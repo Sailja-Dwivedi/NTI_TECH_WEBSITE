@@ -335,13 +335,13 @@
             <div class="row">
                 <div class="col-md-3">
                     <h5>Company Logo</h5>
-                    <img src="/upload/image/nti1-logo.jpg" alt="Company Logo" class="img-fluid" id="NTI-logo">
+                    <img src="images/logo (1).png" alt="Company Logo" class="img-fluid" id="NTI-logo">
                 </div>
                 <div class="col-md-3">
                     <h5>Address <i class="fas fa-map-marker-alt"></i></h5>
                     <address>
                         <a href="https://maps.app.goo.gl/avW7vPVeEbTk7N6P7" target="_blank">
-                            LIG - 2/21/422, Nehru Nagar, Rewa, Madhya Pradesh 486001
+                            Gohalpur in Jabalpur, Madhya Pradesh is 482002.
                         </a>
                     </address>
                 </div>
@@ -394,8 +394,7 @@
             <!-- Copyright notice -->
             <div class="row">
                 <div class="col-12 text-center" style="background-color: black;">
-                    <p style="color: white;">&copy; 2024 Your Company NTI tech Solution Developed by Deepak
-                        Gupta.</p>
+                    <p style="color: white;">&copy; 2024 Your Company NTI tech Solution Developed by komal Gupta .</p>
                 </div>
             </div>
         </div>
@@ -479,47 +478,6 @@
         });
     </script>
 
-    <!-- <script>
-        // Form contact submit
-        document.getElementById('contactForm').addEventListener('submit', function (event) {
-            event.preventDefault(); // Prevent the form from submitting normally
-
-            const name = document.querySelector("#contactName").value;
-            const email = document.querySelector("#contactEmail").value;
-            const phone = document.querySelector("#contactPhone").value;
-            const message = document.querySelector("#contactMessage").value;
-            const jsonData = { name, email, phone, message };
-            console.log(jsonData);
-
-            const empty = jsonData == "";
-            // Send data to API endpoint
-            if (!empty) {
-
-                fetch('https://nti-tech-website.onrender.com/api/Contact', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(jsonData)
-                })
-                    .then(response => {
-                        if (response.ok) {
-                            alert('Message sent successfully!');
-                            // Clear the form after successful submission
-                            document.getElementById('contactForm').reset().value;
-                        } else {
-                            throw new Error('Failed to send message');
-                        }
-                    })
-                    .catch(error => {
-                        // console.error('Error:', error);
-                        alert('Failed to send message. Please try again later.');
-                    });
-            } else {
-                alert('Please fill out all fields');
-            }
-        });
-    </script> -->
 
     <script>
         // Example starter JavaScript for disabling form submissions if there are invalid fields
